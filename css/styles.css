@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+body,
+html,
+.content,
+.content section,
+.nav {
+    width: 100%;
+    height: 100%;
+}
+
+.content section .title h2,
+.content section .title .icons,
+.content section .description {
+    background-color: black;
+    padding: 12px 18px;
+    width: fit-content;
+}
+
+.content section .title,
+.content section .description {
+    color: white;
+    margin: 18px 64px 36px;
+}
+
+body {
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    overflow: hidden;
+}
+
+.content section {
+    display: grid;
+    background-size: cover;
+    background-position: center;
+    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.content section .title {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+}
+
+.content section .title h2 {
+    font-family: 'Roboto Slab';
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.content section .title .icons {
+    padding: 8px 18px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48;
+  cursor: default;
+}
+
+.content section .description {
+    width: auto;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+}
+
+.nav {
+    position: absolute;
+    top: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    pointer-events: none;
+}
+
+.nav button {
+    width: 60px;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    color: white;
+    text-orientation: sideways;
+    justify-self: start;
+    cursor: pointer;
+    pointer-events: all;
+    position: relative;
+}
+
+.nav button::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 100%);
+    opacity: 0;
+    transition: opacity 500ms;
+}
+
+.nav button + button::before {
+    background: rgb(0,0,0);
+    background: linear-gradient(270deg, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 100%);
+}
+
+.nav button span {
+    background-color: black;
+    padding: 8px;
+    display: block;
+    position: relative;
+}
+
+.nav button span::before {
+    content: '<';
+    font-size: 2rem;
+    display: block;
+}
+
+.nav button + button span::before {
+    content: '>';
+}
+
+.nav button:hover::before {
+    opacity: 1;
+}
+
+.nav button:hover span {
+    background-color: white;
+    color: black;
+}
+
+.nav button + button {
+    justify-self: end;
+}
+
+section.project_1 {
+    background-image: url(../img/grand-canyon.jpeg);
+}
+
+section.project_2 {
+    background-image: url(../img/apalachian.jpg);
+}
+
+section.project_3 {
+    background-image: url(../img/yellowstone.jpg);
+}
+
+@media screen and (max-width: 1020px) {
+    .content section .description {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .content section .description {
+        grid-column-start: 1;
+    }
+}
