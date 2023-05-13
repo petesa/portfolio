@@ -11,24 +11,61 @@ html,
 
 .content section .title h2,
 .content section .title .icons,
-.content section .description {
+.content section .description,
+.intro,
+.footer {
     background-color: black;
     padding: 12px 18px;
     width: fit-content;
 }
 
 .content section .title,
-.content section .description {
+.content section .description,
+.intro,
+.footer {
     color: white;
-    margin: 18px 64px 36px;
+    margin: 18px 64px 78px;
+}
+
+.intro,
+.footer {
+    grid-column-start: 3;
+    pointer-events: all;
+    font-size: 14px;
+    align-self: start;
+    justify-self: end;
+    margin: 18px 4px 18px;
 }
 
 body {
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     margin: 0;
     width: 100%;
     height: 100%;
+}
+
+a,
+.intro button {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px dotted white;
+}
+
+a:hover,
+.intro button:hover {
+    border-bottom-style: solid;
+    background: white;
+    color: black
+}
+
+button {
+    cursor: pointer;
+    pointer-events: all;
+    border: none;
+    background-color: transparent;
+    font-family: 'Roboto', Helvetica, Arial, sans-serif;
+    color: inherit;
 }
 
 .content {
@@ -39,13 +76,13 @@ body {
     display: grid;
     background-size: cover;
     background-position: center;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .content section .title {
     grid-column-start: 1;
-    grid-column-end: 5;
+    grid-column-end: 4;
     grid-row-start: 1;
 }
 
@@ -71,34 +108,42 @@ body {
 
 .content section .description {
     width: auto;
+    margin-top: 8px;
     grid-column-start: 3;
     grid-column-end: 5;
-    grid-row-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    align-self: end;
 }
 
 .nav {
     position: absolute;
     top: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 60px 1fr 1fr 60px;
     pointer-events: none;
 }
 
-.nav button {
-    width: 60px;
-    padding: 8px;
-    border: none;
-    background-color: transparent;
-    font-family: 'Roboto', Helvetica, Arial, sans-serif;
-    color: white;
-    text-orientation: sideways;
-    justify-self: start;
-    cursor: pointer;
-    pointer-events: all;
-    position: relative;
+.intro {
+    margin-top: 18px;
 }
 
-.nav button::before {
+.intro button:hover {
+    background-color: white;
+    color: black;
+}
+
+.nav .btn {
+    width: 48px;
+    padding: 4px;
+    color: white;
+    justify-self: start;
+    position: relative;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.nav .btn::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -111,39 +156,53 @@ body {
     transition: opacity 500ms;
 }
 
-.nav button + button::before {
+.nav .btn + .btn::before {
     background: rgb(0,0,0);
     background: linear-gradient(270deg, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0) 100%);
 }
 
-.nav button span {
+.nav .btn span {
     background-color: black;
     padding: 8px;
     display: block;
     position: relative;
 }
 
-.nav button span::before {
+.nav .btn span::before {
     content: '<';
     font-size: 2rem;
     display: block;
 }
 
-.nav button + button span::before {
+.nav .btn + .btn span::before {
     content: '>';
 }
 
-.nav button:hover::before {
+.nav .btn:hover::before {
     opacity: 1;
 }
 
-.nav button:hover span {
+.nav .btn:hover span {
     background-color: white;
     color: black;
 }
 
-.nav button + button {
+.nav .btn + .btn {
     justify-self: end;
+    grid-column-end: 5;
+}
+
+.footer {
+    align-self: end;
+}
+
+.footer .material-symbols-outlined {
+    vertical-align: bottom;
+    font-size: 18px;
+}
+
+.footer a {
+    padding: 1px 4px;
 }
 
 section.project_1 {
@@ -158,14 +217,65 @@ section.project_3 {
     background-image: url(../img/yellowstone.jpg);
 }
 
-@media screen and (max-width: 1020px) {
+.about {
+    background: white;
+}
+
+@media screen and (max-width: 1200px) {
+    .content section .title h2 {
+        font-size: 1.75rem;
+    }
+
+    .content section .title .material-symbols-outlined {
+        font-size: 16px;
+    }
+
     .content section .description {
         font-size: 14px;
     }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 960px) {
+    .nav {
+        grid-template-columns: 44px 1fr 1fr 44px;
+    }
+
+    .nav .btn {
+        font-size: 0;
+    }
+
+    .content section .title h2,
+    .content section .title .icons,
+    .content section .description,
+    .intro,
+    .footer {
+        padding: 12px;
+    }
+
+    .content section .title,
+    .content section .description,
+    .intro,
+    .footer {
+        margin: 18px 48px 78px;
+    }
     .content section .description {
         grid-column-start: 1;
+        margin-bottom: 58px;
+        max-height: 230px;
+        overflow: auto;
+    }
+
+    .content section .title {
+        grid-column-end: 5;
+        margin-top: 58px;
+    }
+
+    .intro,
+    .footer {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        justify-self: start;
+        margin: 8px 4px;
+        font-size: 12px;
     }
 }

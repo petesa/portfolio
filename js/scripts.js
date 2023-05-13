@@ -6,6 +6,7 @@ var height = window.innerHeight;
 window.addEventListener('resize', adjustHeight)
 document.querySelector('.prev').addEventListener('click', goToPrev);
 document.querySelector('.next').addEventListener('click', goToNext);
+document.querySelector('.intro').addEventListener('click', gotoAbout)
 
 updatePage();
 
@@ -30,6 +31,11 @@ function goToNext(event) {
     } else {
         page = 0;
     }
+    updatePage();
+}
+
+function gotoAbout() {
+    page = pageNum + 1;
     updatePage();
 }
 
