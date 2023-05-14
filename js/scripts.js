@@ -1,6 +1,7 @@
 const pageNum = 3;
 const content = document.querySelector('.content');
-var page = Math.floor(Math.random() * pageNum);
+// var page = Math.floor(Math.random() * pageNum);
+var page = 2;
 var height = window.innerHeight;
 
 window.addEventListener('resize', adjustHeight)

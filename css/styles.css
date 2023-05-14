@@ -39,7 +39,7 @@ html,
 
 body {
     font-family: 'Roboto', Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     margin: 0;
     width: 100%;
     height: 100%;
@@ -97,6 +97,10 @@ button {
     padding: 8px 18px;
 }
 
+.content section .title .material-symbols-outlined {
+    font-size: 18px;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -114,6 +118,60 @@ button {
     grid-row-start: 1;
     grid-row-end: 5;
     align-self: end;
+}
+
+.content section .description p {
+    margin: 0;
+}
+
+.content section .description dl {
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 18px;
+}
+
+.content section .description dt {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.content section .description dd {
+    margin-left: 18px;
+}
+
+.content section .description .material-symbols-outlined {
+    font-size: 16px;
+    vertical-align: bottom;
+}
+
+.content section .description blockquote {
+    display: inline-block;
+    margin: 12px 0 12px 18px;
+    position: relative;
+}
+
+.content section .description blockquote::before,
+.content section .description blockquote::after {
+    font-size: 24px;
+    font-family: 'Roboto Slab';
+    position: absolute;
+    top: -8px;
+}
+
+.content section .description blockquote::before {
+    content: "“";
+    left: -12px;
+}
+
+.content section .description blockquote::after {
+    content: "”";
+    right: -12px;
+}
+
+.content section .description .credit {
+    font-size: 12px;
+    text-align: right;
 }
 
 .nav {
@@ -205,16 +263,16 @@ button {
     padding: 1px 4px;
 }
 
-section.project_1 {
-    background-image: url(../img/grand-canyon.jpeg);
+section.embracelet {
+    background-image: url(../img/embracelet.jpg);
 }
 
-section.project_2 {
-    background-image: url(../img/apalachian.jpg);
+section.in_between {
+    background-image: url(../img/in-between.jpg);
 }
 
-section.project_3 {
-    background-image: url(../img/yellowstone.jpg);
+section.sustainability {
+    background-image: url(../img/sustainable.jpg);
 }
 
 .about {
@@ -258,10 +316,15 @@ section.project_3 {
     .footer {
         margin: 18px 48px 78px;
     }
+
+    .content section .title .icons {
+        display: none;
+    }
+
     .content section .description {
         grid-column-start: 1;
         margin-bottom: 58px;
-        max-height: 230px;
+        max-height: 280px;
         overflow: auto;
     }
 
