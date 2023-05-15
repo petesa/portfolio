@@ -77,7 +77,7 @@ button {
     background-size: cover;
     background-position: center;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1.5fr 1fr;
 }
 
 .content section .title {
@@ -121,6 +121,9 @@ button {
     display: grid;
     column-gap: 18px;
     row-gap: 18px;
+    grid-auto-columns: auto auto 1fr;
+    max-height: 280px;
+    overflow: auto;
 }
 
 .content section .description p {
@@ -153,6 +156,11 @@ button {
     display: inline-block;
     margin: 12px 0;
     position: relative;
+    align-self: center;
+    padding: 0 16px;
+    text-align: center;
+    width: fit-content;
+    justify-self: center;
 }
 
 .content section .description blockquote::before,
@@ -165,12 +173,12 @@ button {
 
 .content section .description blockquote::before {
     content: "“";
-    left: -12px;
+    left: 0;
 }
 
 .content section .description blockquote::after {
     content: "”";
-    right: -12px;
+    right: 0;
 }
 
 .content section .description .credit {
@@ -283,31 +291,29 @@ section.foot_haptics {
     background-image: url(../img/foot-haptics.jpg);
 }
 
+section.about {
+    background-image: url(../img/about.jpg);
+}
+
 .about {
     background: white;
 }
 
-@media screen and (max-width: 1200px) {
-    .content section .title h2 {
-        font-size: 1.75rem;
-    }
-
-    .content section .title .material-symbols-outlined {
-        font-size: 16px;
-    }
-
-    .content section .description {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1000px) {
     .nav {
         grid-template-columns: 44px 1fr 1fr 44px;
     }
 
     .nav .btn {
         font-size: 0;
+    }
+
+    .content section .title h2 {
+        font-size: 1.75rem;
+    }
+
+    .content section .title .material-symbols-outlined {
+        font-size: 16px;
     }
 
     .content section .title h2,
@@ -332,8 +338,6 @@ section.foot_haptics {
     .content section .description {
         grid-column-start: 1;
         margin-bottom: 58px;
-        max-height: 280px;
-        overflow: auto;
     }
 
     .content section .title {
@@ -348,5 +352,13 @@ section.foot_haptics {
         justify-self: start;
         margin: 8px 4px;
         font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .content section .description blockquote {
+        grid-row: 3;
+        grid-column-start: 1;
+        grid-column-end: 4;
     }
 }
