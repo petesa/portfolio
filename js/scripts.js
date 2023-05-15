@@ -1,4 +1,4 @@
-const pageNum = 3;
+const pageNum = 4;
 const content = document.querySelector('.content');
 // var page = Math.floor(Math.random() * pageNum);
 var page = 2;

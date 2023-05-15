@@ -118,17 +118,21 @@ button {
     grid-row-start: 1;
     grid-row-end: 5;
     align-self: end;
+    display: grid;
+    column-gap: 18px;
+    row-gap: 18px;
 }
 
 .content section .description p {
     margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
 .content section .description dl {
     font-size: 12px;
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 18px;
+    grid-row-start: 2;
+    justify-self: start;
 }
 
 .content section .description dt {
@@ -147,7 +151,7 @@ button {
 
 .content section .description blockquote {
     display: inline-block;
-    margin: 12px 0 12px 18px;
+    margin: 12px 0;
     position: relative;
 }
 
@@ -273,6 +277,10 @@ section.in_between {
 
 section.sustainability {
     background-image: url(../img/sustainable.jpg);
+}
+
+section.foot_haptics {
+    background-image: url(../img/foot-haptics.jpg);
 }
 
 .about {
