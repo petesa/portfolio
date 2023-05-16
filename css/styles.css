@@ -77,7 +77,7 @@ button {
     background-size: cover;
     background-position: center;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1.5fr 1fr;
+    grid-template-columns: 1fr 1fr 1.75fr 1fr;
 }
 
 .content section .title {
@@ -120,16 +120,20 @@ button {
     align-self: end;
     display: grid;
     column-gap: 18px;
-    row-gap: 18px;
     grid-auto-columns: auto auto 1fr;
     max-height: 280px;
     overflow: auto;
 }
 
-.content section .description p {
+.content section .description .text,
+.conten section .description .credit {
     margin: 0;
     grid-column-start: 1;
     grid-column-end: 4;
+}
+
+.content section .description .text .date {
+    font-family: 'Roboto Slab', Helvetica, Arial, sans-serif;
 }
 
 .content section .description dl {
@@ -150,6 +154,7 @@ button {
 .content section .description .material-symbols-outlined {
     font-size: 16px;
     vertical-align: bottom;
+    margin-left: 4px;
 }
 
 .content section .description blockquote {
@@ -184,6 +189,9 @@ button {
 .content section .description .credit {
     font-size: 12px;
     text-align: right;
+    grid-row-start: 4;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
 .nav {
@@ -360,5 +368,24 @@ section.about {
         grid-row: 3;
         grid-column-start: 1;
         grid-column-end: 4;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .content section .description dl {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .content section .description dl + dl {
+        grid-row-start: 3;
+    }
+
+    .content section .description blockquote {
+        grid-row: 4;
+    }
+
+    .content section .description .credit {
+        grid-row: 5;
     }
 }
